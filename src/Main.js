@@ -17,6 +17,10 @@ class App extends Component {
               component={PageOne} />
             <Route
               exact
+              path="/page1"
+              component={PageOne} />
+            <Route
+              exact
               path="/page2"
               component={PageTwo} />
           </Switch>

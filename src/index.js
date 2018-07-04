@@ -1,25 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import store, { history } from './redux/store';
 import './index.css';
 import Main from './Main';
-import { Router } from 'react-router-dom';
+import { ConnectedRouter } from 'connected-react-router'
 import registerServiceWorker from './registerServiceWorker';
-import createBrowserHistory from  'history/createBrowserHistory';
 
 const rootEl = document.getElementById('root');
 ReactDOM.render(
-    <Router history={createBrowserHistory()}>
-        <Main />
-    </Router>, rootEl
+    <Provider store={store}>
+        <ConnectedRouter history={history}>
+            <Main />
+        </ConnectedRouter>
+    </Provider>, rootEl
 );
 
 if (module.hot) {
     module.hot.accept('./Main', () => {
         const NextApp = require('./Main').default
         ReactDOM.render(
-            <Router history={createBrowserHistory()}>
-                <NextApp />
-            </Router>, rootEl
+            <Provider store={store}>
+                <ConnectedRouter history={history}>
+                    <NextApp />
+                </ConnectedRouter>
+            </Provider>, rootEl
         );
     });
 }
