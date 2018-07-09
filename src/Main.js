@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
 import { Route, Switch } from 'react-router-dom';
-import PageOne from './pages/page1';
-import PageTwo from './pages/page2';
+import PageOne from './pages/PageOne';
+import PageTwo from './pages/PageTwo';
 import './assets/styles/style.css';
 
 class App extends Component {
@@ -20,7 +20,6 @@ class App extends Component {
               path="/page1"
               component={PageOne} />
             <Route
-              exact
               path="/page2"
               component={PageTwo} />
           </Switch>
